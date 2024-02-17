@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Movie Database";
+}
+@model Application
+
+<div style="text-align: left; max-width: 300px; margin: 0 auto; background: rgba(51, 51, 51,.4); padding: 10px; color:white; font-size:large">
+
+    <h2>Add a New Movie</h2>
+    <form method="post">
+        <label asp-for="Category" for="category">Category:</label><br>
+        <input asp-for="Category" type="text" id="category" name="category" required><br><br>
+
+        <label asp-for="Title" for="title">Title:</label><br>
+        <input asp-for="Title" type="text" id="title" name="title" required><br><br>
+
+        <label asp-for="Year" for="year">Year:</label><br>
+        <input asp-for="Year" type="number" id="year" name="year" required><br><br>
+
+        <label asp-for="Director" for="director">Director:</label><br>
+        <input asp-for="Director" type="text" id="director" name="director" required><br><br>
+
+        <label asp-for="Rating" for="rating">Rating:</label><br>
+        <select asp-for="Rating" id="rating" name="rating" required>
+            <option value="G">G</option>
+            <option value="PG">PG</option>
+            <option value="PG-13">PG-13</option>
+            <option value="R">R</option>
+        </select><br><br>
+
+        <label asp-for="Edited" for="edited">Edited:</label><br>
+        <input asp-for="Edited" type="radio" id="edited_yes" name="edited" value="true" required>
+        <label asp-for="Edited" for="edited_yes">Yes</label>
+        <input asp-for="Edited" type="radio" id="edited_no" name="edited" value="false">
+        <label asp-for="Edited" for="edited_no">No</label><br><br>
+
+        <label asp-for="Lent_to" for="lent_to">Lent To:</label><br>
+        <input asp-for="Lent_to" type="text" id="lent_to" name="lent_to"><br><br>
+
+        <label asp-for="Notes" for="notes">Notes (max 25 characters):</label><br>
+        <input asp-for="Notes" type="text" id="notes" name="notes" maxlength="25"><br><br>
+
+        <button type="submit">Submit Movie</button>
+    </form>
+
+</div>
+
