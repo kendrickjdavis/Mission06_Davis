@@ -3,8 +3,16 @@
 *@
 @{
 }
+
 @model Movie
 
 <div style="text-align: left; max-width: 300px; margin: 0 auto; background: rgba(51, 51, 51,.4); padding: 10px; color:white; font-size:large">
-    <h2>Your submission has been received. Thank you! @Model.Title</h2>
+    <h2>Confirm Deletion</h2>
+    <h3>@Model.Title</h3>
+    <form method="post">
+        <input type="hidden" asp-for="MovieId"/>
+
+        <button type="submit">Delete</button>
+        <a class="btn btn-info" asp-controller="Home" asp-action="Table">Cancel</a>
+    </form>
 </div>
