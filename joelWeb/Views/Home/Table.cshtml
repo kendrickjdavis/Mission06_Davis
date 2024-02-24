@@ -1,0 +1,97 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model List<Movie>
+
+<style>
+    .table-bordered {
+        border: 1px solid #dddddd;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        .table-bordered th, .table-bordered td {
+            border: 1px solid #dddddd;
+            padding: 8px;
+        }
+
+        .table-bordered thead {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .table-bordered tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .table-bordered tbody tr:nth-child(odd) {
+            background-color: #ddd;
+        }
+
+        .table-bordered tbody tr:hover {
+            background-color: #aaa;
+        }
+
+    .btn {
+        padding: 6px 12px;
+        margin-bottom: 0;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        cursor: pointer;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
+
+    .btn-info {
+        color: #fff;
+        background-color: #5bc0de;
+        border-color: #46b8da;
+    }
+
+    .btn-danger {
+        color: #fff;
+        background-color: #d9534f;
+        border-color: #d43f3a;
+    }
+</style>
+
+<table class="table-bordered">
+    <thead class="fw-bold">
+        <tr>
+            <td>Title</td>
+            <td>Year</td>
+            <td>Director</td>
+            <td>Rating</td>
+            <td>Edited</td>
+            <td>LentTo</td>
+            <td>CopiedToPlex</td>
+            <td>Notes</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var iCount in Model)
+        {
+            <tr>
+                <td>@iCount.Title</td>
+                <td>@iCount.Year</td>
+                <td>@iCount.Director</td>
+                <td>@iCount.Rating</td>
+                <td>@iCount.Edited</td>
+                <td>@iCount.LentTo</td>
+                <td>@iCount.CopiedToPlex</td>
+                <td>@iCount.Notes</td>
+
+                <td><a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@iCount.MovieId">Edit</a></td>
+                <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@iCount.MovieId">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
